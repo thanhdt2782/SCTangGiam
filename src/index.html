@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+  <style>
+      h1 {
+        text-align: center;
+        margin-top: 3em;
+        margin-bottom: 1em;
+      }
+      .scene {
+        height: 350px;
+      }
+      .face {
+        margin: auto;
+        width: 66%;
+        height: 72%;
+        background-color: #fffaf2;
+      }
+
+      .chaomung{
+        text-align: center;
+        margin:auto;       
+        font-size:2.5rem;
+      }
+
+      .number {
+        text-align: center;
+        margin:auto;       
+        font-size:1.5rem;
+      }   
+      
+      .buttons{
+        text-align: center;
+        margin:auto;       
+        font-size:1.5rem;
+      }
+
+      .closed {
+        width: 22px;
+        height: 13px;
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+        border-left: 2px solid #ffa4b1;
+        border-right: 2px solid #ffa4b1;
+        border-top: 2px solid #ffa4b1;
+        margin-bottom: 12px;
+      }
+      .eye {
+        width: 26px;
+        height: 26px;
+        border-radius: 100px;
+        background-color: #ffa4b1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1px;
+      }
+      .eye .pupil {
+        position: relative;
+        width: 18px;
+        height: 18px;
+        border-radius: 100px;
+        background-color: #82174d;
+      }
+      .eye .pupil:before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        background-color: #fff;
+        top: 4px;
+        left: 3px;
+        border-radius: 100px;
+      }
+      .eye .pupil:after {
+        content: "";
+        width: 3px;
+        height: 3px;
+        position: absolute;
+        background-color: #fff;
+        top: 9px;
+        left: 12px;
+        border-radius: 100px;
+      }
+      .mouth-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .mouth-row .mouth {
+        margin-top: 3%;
+      }
+      .mouth-row .tongue {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #FF585D;
+        border-radius: 50% 50% 30%;
+        margin: 5px 0;
+      }
+      .mouth-row .mouth.smile {
+        height: 16px;
+        width: 32px;
+        border-bottom-left-radius: 32px;
+        border-bottom-right-radius: 32px;
+        background-color: #82174d;
+        top: 120px;
+      }
+      .mouth-row .mouth.cry {
+        height: 16px;
+        width: 32px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        background-color: #82174d;
+        top: 120px;
+      }
+      .mouth-row .mouth:before {
+        content: "";
+        left: 43px;
+        margin-top: 1%;
+        border-radius: 100%;
+        height: 5%;
+        width: 11.5%;
+        background-color: #f56f79;
+        position: absolute;
+      }
+      .mouth-row .mouth:after {
+        content: "";
+        left: 106px;
+        margin-top: 1%;
+        border-radius: 100%;
+        height: 5%;
+        width: 11.5%;
+        background-color: #f56f79;
+        position: absolute;
+      }      
+
+      .loader,
+      .loader:before,
+      .loader:after {
+        background: #f56f79;
+        -webkit-animation: load1 1s infinite ease-in-out;
+        animation: load1 1s infinite ease-in-out;
+        width: 0.4rem;
+        height: 4em;
+      }
+      .loader {
+        color: #f56f79;
+        margin: 2px auto;
+        font-size: 0.2rem;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+      }
+      .loader:before,
+      .loader:after {
+        position: absolute;
+        top: 0;
+        content: '';
+      }
+      .loader:before {
+        left: -1.5em;
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+      }
+      .loader:after {
+        left: 1.5em;
+      }
+      @-webkit-keyframes load1 {
+        0%,
+        80%,
+        100% {
+          box-shadow: 0 0;
+          height: 2em;
+        }
+        40% {
+          box-shadow: 0 -2em;
+          height: 3em;
+        }
+      }
+      @keyframes load1 {
+        0%,
+        80%,
+        100% {
+          box-shadow: 0 0;
+          height: 2em;
+        }
+        40% {
+          box-shadow: 0 -2em;
+          height: 3em;
+        }
+      }
+    </style>
+</head>
+<body style="background: #eef2fe; font-family: 'Arvo', serif;">
+  <div class="container">
+    <h1>Chuong trinh counter tren Blockchain NEAR</h1>
+    <div class="sign-in" style="display: none;">
+      <p>Ban can phai login de call smart contract:</p>
+      <button class="btn btn-primary" style="background-color: #0072CE;">Dang nhap</button>
+    </div>
+    <div class="after-sign-in" style="display: none;">
+        <div class="scene">
+          <div class="">
+              <div class="number">
+                <div id="show" class="number"></div>
+              </div>
+              <div class="buttons">
+                <div class="buttons">
+                  <button id="plus" class="">
+                    Tang 1
+                    <div class="left">
+                    </div>
+                    <div class="updown">
+                    </div>
+                  </button>
+                  <button id="reset" class="">
+                    Reset
+                    <div class="left">
+                    </div>
+                    <div class="updown">
+                    </div>
+                  </button>
+                  <button id="minus" class="">
+                    Giam 1
+                    <div class="right">
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sign-out" style="display: none;">
+          <button class="btn btn-primary" style="background-color: #0072CE;">Dang xuat</button>
+        </div>
+      </div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
